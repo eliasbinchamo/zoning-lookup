@@ -86,7 +86,7 @@ To make it available in a single project only, copy it into that project's `.cla
 ### Requirements
 
 - **Claude Code** with web access. The skill uses web search and fetch, and the built-in browser when it's available.
-- **Python 3.9+** for the helper scripts. The jurisdiction scripts use only the standard library.
+- **Python 3.10+** for the helper scripts. The jurisdiction scripts use only the standard library.
 - **[`pypdf`](https://pypi.org/project/pypdf/)**, needed only for jurisdictions that publish their code as PDF. Install it with `pip install -r requirements.txt`. If it's missing, the skill tells Claude to install it into a throwaway virtualenv.
 - **No API keys.** The jurisdiction lookups use free U.S. Census Bureau services.
 

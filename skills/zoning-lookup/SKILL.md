@@ -9,7 +9,7 @@ Find the **official, current** zoning ordinance for a site, pull the regulations
 
 The output is a research summary, not a legal opinion. Every number must trace to a cited section of the official code.
 
-**Paths:** `scripts/`, `references/`, `templates/` and `examples/` are relative to this skill's own directory (the base directory shown when the skill loads), not the user's working directory. The scripts need Python 3.9+. The two PDF scripts also need `pypdf`; if it's missing, install it into a virtualenv in your scratch space (see `references/source-finding.md`).
+**Paths:** `scripts/`, `references/`, `templates/` and `examples/` are relative to this skill's own directory (the base directory shown when the skill loads), not the user's working directory. The scripts need Python 3.10+. The two PDF scripts also need `pypdf`; if it's missing, install it into a virtualenv in your scratch space (see `references/source-finding.md`).
 
 ## Inputs the user may give
 
