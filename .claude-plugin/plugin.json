@@ -1,0 +1,13 @@
+{
+  "name": "zoning-lookup",
+  "version": "0.1.0",
+  "description": "Research U.S. commercial zoning from a district + city, street address, ZIP code, or parcel: finds the official current ordinance and summarizes permitted uses, height, setbacks, parking, and lot coverage with links to the source sections.",
+  "author": {
+    "name": "Elias Binchamo",
+    "url": "https://github.com/eliasbinchamo"
+  },
+  "homepage": "https://github.com/eliasbinchamo/zoning-lookup",
+  "repository": "https://github.com/eliasbinchamo/zoning-lookup",
+  "license": "MIT",
+  "keywords": ["zoning", "real-estate", "land-use", "commercial", "due-diligence", "municode", "setbacks", "parking"]
+}

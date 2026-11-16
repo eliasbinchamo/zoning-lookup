@@ -1,0 +1,50 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Manifests are valid JSON
+        run: |
+          python -m json.tool .claude-plugin/plugin.json > /dev/null
+          python -m json.tool .claude-plugin/marketplace.json > /dev/null
+
+      - name: Plugin and marketplace versions agree
+        run: |
+          python - <<'PY'
+          import json
+          p = json.load(open(".claude-plugin/plugin.json"))
+          m = json.load(open(".claude-plugin/marketplace.json"))
+          entry = next(e for e in m["plugins"] if e["name"] == p["name"])
+          assert entry["version"] == p["version"], (entry["version"], p["version"])
+          print("version", p["version"], "OK")
+          PY
+
+      - name: SKILL.md has name and description frontmatter
+        run: |
+          head -5 skills/zoning-lookup/SKILL.md | grep -q '^name: zoning-lookup$'
+          head -5 skills/zoning-lookup/SKILL.md | grep -q '^description: '
+
+      - name: Scripts compile
+        run: python -m py_compile skills/zoning-lookup/scripts/*.py
+
+      - name: Scripts print usage without arguments
+        run: |
+          pip install -r requirements.txt
+          for s in skills/zoning-lookup/scripts/*.py; do
+            set +e; python "$s" > /dev/null; code=$?; set -e
+            [ "$code" -eq 2 ] || { echo "$s exited $code (expected usage exit 2)"; exit 1; }
+          done

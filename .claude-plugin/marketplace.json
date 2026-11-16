@@ -1,0 +1,20 @@
+{
+  "name": "zoning-lookup",
+  "owner": {
+    "name": "Elias Binchamo",
+    "url": "https://github.com/eliasbinchamo"
+  },
+  "metadata": {
+    "description": "Claude Code plugin for researching U.S. commercial zoning requirements from official sources."
+  },
+  "plugins": [
+    {
+      "name": "zoning-lookup",
+      "source": "./",
+      "description": "Find the official zoning ordinance for a site and summarize permitted uses, height, setbacks, parking, and lot coverage with source links.",
+      "version": "0.1.0",
+      "category": "productivity",
+      "keywords": ["zoning", "real-estate", "land-use", "commercial"]
+    }
+  ]
+}

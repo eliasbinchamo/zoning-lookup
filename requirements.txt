@@ -1,0 +1,3 @@
+# Only needed for jurisdictions that publish their zoning code as PDF
+# (scripts/pdf_to_text.py and scripts/pdf_use_table.py). Other scripts use the standard library.
+pypdf>=4.0
